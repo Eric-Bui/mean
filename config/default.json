@@ -2,5 +2,5 @@
 	"vnp_TmnCode": "MILCAH01",
 	"vnp_HashSecret": "EBUCNHLDPPGEGBOBGYGPPVLADYEALAYM",
 	"vnp_Url": "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html",
-	"vnp_ReturnUrl": "http://192.168.1.14:4200/checkout/transaction"
+	"vnp_ReturnUrl": "https://milcah.herokuapp.com/checkout/transaction"
 }
