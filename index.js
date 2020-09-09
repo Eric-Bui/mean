@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 const userRoute = require("./routes/user.route");
 const authRoute = require("./routes/auth.route");
@@ -37,12 +38,6 @@ app.use(cookieParser(process.env.SESSTION_SECRET));
 
 app.use(express.static("public"));
 //routes
-
-app.get("/", (req, res) => {
-  res.render("index", {
-    name: "AAA",
-  });
-});
 
 app.use("/users", userRoute);
 app.use("/products", productRoute);
