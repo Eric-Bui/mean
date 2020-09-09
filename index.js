@@ -39,10 +39,6 @@ app.use(cookieParser(process.env.SESSTION_SECRET));
 //app.use(express.static("public"));
 //routes
 
-app.get("/*", (req, res) => {
-  res.sendFile("index.html", { root: "./milcah/dist/milcash/" });
-});
-
 app.use("/users", userRoute);
 app.use("/products", productRoute);
 app.use("/auth", authRoute);
@@ -53,6 +49,10 @@ app.use("/api/cart", apiCartRoute);
 app.use("/api/transaction", apiTransaction);
 app.use("/api", apiClient);
 app.use("/api/admin", apiAdmin);
+
+app.get("*", (req, res) => {
+  res.sendFile("index.html", { root: "./milcah/dist/milcash/" });
+});
 
 app.use((req, res) => {
   res.status(404).render("page-error");
