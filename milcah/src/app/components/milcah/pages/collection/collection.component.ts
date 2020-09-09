@@ -15,6 +15,7 @@ export class CollectionComponent implements OnInit {
   currentPage: number;
   totalItems: number;
   search: any;
+  categorySelected: String;
 
   constructor(
     private categoriesService: CategoriesService,
