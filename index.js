@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 3000;
 // Add headers
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
+  res.sendFile(path.join(__dirname, "milcah/dist/milcash/index.html"));
 });
 
 app.use(bodyParser.json()); // for parsing application/json
