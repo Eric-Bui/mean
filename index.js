@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 3000;
 // Add headers
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname + "/milcah/dist/milcah")));
+app.use(express.static(__dirname + "/milcah/dist/milcah"));
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
