@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://milcah.herokuapp.com/api",
+    "target": "https://milcah.herokuapp.com",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {

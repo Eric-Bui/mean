@@ -50,7 +50,7 @@ app.use("/api/transaction", apiTransaction);
 app.use("/api", apiClient);
 app.use("/api/admin", apiAdmin);
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile("index.html", { root: "./milcah/dist/milcash/" });
 });
 
