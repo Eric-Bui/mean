@@ -40,7 +40,7 @@ app.use(cookieParser(process.env.SESSTION_SECRET));
 //routes
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./milcah/dist/milcash/index.html"));
+  res.sendFile("index.html", { root: "./milcah/dist/milcash/" });
 });
 
 app.use("/users", userRoute);
