@@ -39,7 +39,7 @@ app.use(cookieParser(process.env.SESSTION_SECRET));
 //app.use(express.static("public"));
 //routes
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile("index.html", { root: "./milcah/dist/milcash/" });
 });
 
