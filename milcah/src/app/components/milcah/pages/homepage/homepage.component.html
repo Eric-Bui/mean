@@ -1,0 +1,364 @@
+<div class="home">
+  <div class="carousel">
+    <!--slider-->
+    <div id="homeSlide" class="carousel slide" data-interval="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../../../../assets/images/3.png" class="d-block w-100" alt="...">
+          <div class="carousel-custom">
+            <h1 class="text-uppercase animate__animated animate__fadeInDown">SẢN PHẨM MỚI</h1>
+            <a href="" class="animate__animated animate__fadeInDown animate__delay-1s">Xem Ngay</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="../../../../assets/images/4.jpeg" class="d-block w-100" alt="...">
+          <div class="carousel-custom">
+            <h1 class="animate__animated animate__fadeInDown">MADE FOR YOU</h1>
+            <a href="" class="animate__animated animate__fadeInDown animate__delay-1s">Xem Ngay</a>
+          </div>
+        </div>
+        <a class="carousel-control" href="#homeSlide">
+          <svg class="arrow-next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path
+              d="M28,15H15V10a1,1,0,0,0-1.51-.86l-10,6a1,1,0,0,0,0,1.72l10,6A1,1,0,0,0,14,23a1,1,0,0,0,.49-.13A1,1,0,0,0,15,22V17H28a1,1,0,0,0,0-2ZM13,20.23,5.94,16,13,11.77Z"
+              data-name="back" /></svg>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+  <!--/carousel-->
+  <div class="container-fluid">
+    <div class="container-content">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" data-aos="fade-right">
+          <div class="overlay">
+            <div class="lastest-products"></div>
+            <div class="content">
+              <h2>SẢN PHẨM MỚI</h2>
+              <span>2020</span>
+              <a href="" class="link-hover">Shop now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" data-aos="fade-left">
+          <div class="overlay">
+            <div class="about-content"></div>
+            <div class="trend-content">
+              <h2>Xu hướng thời trang</h2>
+              <span>2020</span>
+              <a href="" class="link-hover">Xem Thêm</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--special products-->
+  <div class="special-products">
+    <div class="special-products-title">
+      <h1>Sản phẩm mới nhất</h1>
+    </div>
+    <div class="container-fluid my-4">
+      <div class="container-content">
+        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-interval="false">
+          <div class="controls-top">
+            <a class="btn-floating next" href="#multi-item-example" data-slide="next"><i
+                class="fa fa-chevron-right"></i></a>
+            <a class="btn-floating prev" href="#multi-item-example" data-slide="prev"><i
+                class="fa fa-chevron-left"></i></a>
+          </div>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-xs-12 col-md-6 col-sm-6 col-lg-3 slide-multi" *ngFor="let item of product | slice: 0:4;"
+                  data-aos="zoom-in">
+                  <div class="card mb-2">
+                    <div class="image">
+                      <img class="card-img-top" *ngFor="let image of item.images" src="{{ image.url }}"
+                        alt="Card image cap">
+                    </div>
+
+                    <div class="card-body">
+                      <h5 class="card-title">{{ item.name }}</h5>
+                      <p class="card-text font-weight-bold">{{ item.price | number: '1.0-3' }} đ</p>
+                      <a class="link-hover" (click)="addToCart(item._id)">Thêm vào Giỏ</a>
+                      <span class="mx-3">|</span>
+                      <a class="link-hover" [routerLink]="['/products', item._id]">Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="carousel-item">
+
+              <div class="row">
+                <div class="col-xs-12 col-md-6 col-sm-6 col-lg-3 slide-multi" *ngFor="let item of product | slice: 5:9;"
+                  data-aos="zoom-in">
+                  <div class="card mb-2">
+                    <div class="image">
+                      <img class="card-img-top" *ngFor="let image of item.images" src="{{ image.url }}"
+                        alt="Card image cap">
+                    </div>
+
+                    <div class="card-body">
+                      <h5 class="card-title">{{ item.name }}</h5>
+                      <p class="card-text font-weight-bold">{{ item.price | number: '1.0-3' }} đ</p>
+                      <a class="link-hover" (click)="addToCart(item._id)">Thêm vào Giỏ</a>
+                      <span class="mx-3">|</span>
+                      <a class="link-hover" [routerLink]="['/products', item._id]">Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--/special products-->
+  <!---------->
+
+  <div class="products-sale">
+    <div class="title">
+      <span class="text-line">
+        <span class="line"></span>
+        <span class="text">Khuyến mãi trong tuần</span>
+      </span>
+      <h2>Giảm 10% khi mua sản phẩm</h2>
+      <span><a class="see-more" href="">Chi Tiết</a></span>
+
+    </div>
+  </div>
+
+  <!--Best Products-->
+  <div class="best-products">
+    <div class="container-content p-4">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 col-xl-3">
+          <div class="title">
+            <h2>Sản phẩm tốt nhất</h2>
+            <p>Khám phá những sản phẩm bán chạy nhất của chúng tôi.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mt-4 col-xl-3" *ngFor="let item of product | slice: 0:7" data-aos="fade-up">
+          <div class="product">
+            <a class="product-image d-block">
+              <img *ngFor="let image of item.images" class="img-fluid" src="{{ image.url }}" alt="">
+            </a>
+            <div class="product-summary">
+              <h5>{{ item.name}}</h5>
+              <p>{{ item.price | number: '1.0-3' }} đ</p>
+              <div class="add-cart">
+                <a class="btn-add-cart" (click)="addToCart(item._id)">THÊM VÀO GIỎ</a>
+                <span class="mx-3">|</span>
+                <a [routerLink]="['/products', item._id]">CHI TIẾT</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/best products-->
+    <div class="container-content container-delivery">
+      <div class="row mx-0">
+        <div class="col-xs-3 col-sm-6 col-md-3 col-lg-3 p-0">
+          <div class="delivery">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 491.1 491.1" xml:space="preserve">
+              <g transform="translate(0 -540.36)">
+                <g>
+                  <g>
+                    <path d="M401.5,863.31c-12,0-23.4,4.7-32,13.2c-8.6,8.6-13.4,19.8-13.4,31.8s4.7,23.2,13.4,31.8c8.7,8.5,20,13.2,32,13.2
+				c24.6,0,44.6-20.2,44.6-45S426.1,863.31,401.5,863.31z M401.5,933.31c-13.8,0-25.4-11.4-25.4-25s11.6-25,25.4-25
+				c13.6,0,24.6,11.2,24.6,25S415.1,933.31,401.5,933.31z" />
+                    <path d="M413.1,713.41c-1.8-1.7-4.2-2.6-6.7-2.6h-51.3c-5.5,0-10,4.5-10,10v82c0,5.5,4.5,10,10,10h81.4c5.5,0,10-4.5,10-10v-54.9
+				c0-2.8-1.2-5.5-3.3-7.4L413.1,713.41z M426.5,792.81h-61.4v-62.1h37.4l24,21.6V792.81z" />
+                    <path d="M157.3,863.31c-12,0-23.4,4.7-32,13.2c-8.6,8.6-13.4,19.8-13.4,31.8s4.7,23.2,13.4,31.8c8.7,8.5,20,13.2,32,13.2
+				c24.6,0,44.6-20.2,44.6-45S181.9,863.31,157.3,863.31z M157.3,933.31c-13.8,0-25.4-11.4-25.4-25s11.6-25,25.4-25
+				c13.6,0,24.6,11.2,24.6,25S170.9,933.31,157.3,933.31z" />
+                    <path d="M90.6,875.61H70.5v-26.6c0-5.5-4.5-10-10-10s-10,4.5-10,10v36.6c0,5.5,4.5,10,10,10h30.1c5.5,0,10-4.5,10-10
+				S96.1,875.61,90.6,875.61z" />
+                    <path
+                      d="M141.3,821.11c0-5.5-4.5-10-10-10H10c-5.5,0-10,4.5-10,10s4.5,10,10,10h121.3C136.8,831.11,141.3,826.71,141.3,821.11z" />
+                    <path d="M30.3,785.01l121.3,0.7c5.5,0,10-4.4,10.1-9.9c0.1-5.6-4.4-10.1-9.9-10.1l-121.3-0.7c-0.1,0-0.1,0-0.1,0
+				c-5.5,0-10,4.4-10,9.9C20.3,780.51,24.8,785.01,30.3,785.01z" />
+                    <path
+                      d="M50.7,739.61H172c5.5,0,10-4.5,10-10s-4.5-10-10-10H50.7c-5.5,0-10,4.5-10,10S45.2,739.61,50.7,739.61z" />
+                    <path d="M487.4,726.11L487.4,726.11l-71.6-59.3c-1.8-1.5-4-2.3-6.4-2.3h-84.2v-36c0-5.5-4.5-10-10-10H60.5c-5.5,0-10,4.5-10,10
+				v73.2c0,5.5,4.5,10,10,10s10-4.5,10-10v-63.2h234.8v237.1h-82c-5.5,0-10,4.5-10,10s4.5,10,10,10h122.1c5.5,0,10-4.5,10-10
+				s-4.5-10-10-10h-20.1v-191.1h80.6l65.2,54l-0.7,136.9H460c-5.5,0-10,4.5-10,10s4.5,10,10,10h20.3c5.5,0,10-4.4,10-9.9l0.8-151.6
+				C491,730.91,489.7,728.01,487.4,726.11z" />
+                  </g>
+                </g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+            </svg>
+            <p>Giao hàng miễn phí khu vực bán kính 10km hoặc đơn hàng từ 500.000 VNĐ</p>
+          </div>
+        </div>
+        <div class="col-xs-3 col-sm-6 col-md-3 col-lg-3 p-0">
+          <div class="delivery">
+            <svg id="Layer_1" enable-background="new 0 0 512.021 512.021" height="512" viewBox="0 0 512.021 512.021"
+              width="512" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="m367.988 512.021c-16.528 0-32.916-2.922-48.941-8.744-70.598-25.646-136.128-67.416-189.508-120.795s-95.15-118.91-120.795-189.508c-8.241-22.688-10.673-46.108-7.226-69.612 3.229-22.016 11.757-43.389 24.663-61.809 12.963-18.501 30.245-33.889 49.977-44.5 21.042-11.315 44.009-17.053 68.265-17.053 7.544 0 14.064 5.271 15.645 12.647l25.114 117.199c1.137 5.307-.494 10.829-4.331 14.667l-42.913 42.912c40.482 80.486 106.17 146.174 186.656 186.656l42.912-42.913c3.837-3.837 9.36-5.466 14.667-4.331l117.199 25.114c7.377 1.581 12.647 8.101 12.647 15.645 0 24.256-5.738 47.224-17.054 68.266-10.611 19.732-25.999 37.014-44.5 49.977-18.419 12.906-39.792 21.434-61.809 24.663-6.899 1.013-13.797 1.518-20.668 1.519zm-236.349-479.321c-31.995 3.532-60.393 20.302-79.251 47.217-21.206 30.265-26.151 67.49-13.567 102.132 49.304 135.726 155.425 241.847 291.151 291.151 34.641 12.584 71.867 7.64 102.132-13.567 26.915-18.858 43.685-47.256 47.217-79.251l-95.341-20.43-44.816 44.816c-4.769 4.769-12.015 6.036-18.117 3.168-95.19-44.72-172.242-121.772-216.962-216.962-2.867-6.103-1.601-13.349 3.168-18.117l44.816-44.816z" />
+                <path
+                  d="m496.02 272c-8.836 0-16-7.164-16-16 0-123.514-100.486-224-224-224-8.836 0-16-7.164-16-16s7.164-16 16-16c68.381 0 132.668 26.628 181.02 74.98s74.98 112.639 74.98 181.02c0 8.836-7.163 16-16 16z" />
+                <path
+                  d="m432.02 272c-8.836 0-16-7.164-16-16 0-88.224-71.776-160-160-160-8.836 0-16-7.164-16-16s7.164-16 16-16c105.869 0 192 86.131 192 192 0 8.836-7.163 16-16 16z" />
+                <path
+                  d="m368.02 272c-8.836 0-16-7.164-16-16 0-52.935-43.065-96-96-96-8.836 0-16-7.164-16-16s7.164-16 16-16c70.58 0 128 57.42 128 128 0 8.836-7.163 16-16 16z" />
+              </g>
+            </svg>
+            <p>GỌI MUA HÀNG<br>
+              0938547691
+            </p>
+
+          </div>
+        </div>
+        <div class="col-xs-3 col-sm-6 col-md-3 col-lg-3 p-0">
+          <div class="delivery">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M492.381,104.546c-19.646-27.033-54.05-51.433-96.876-68.703C352.91,18.667,303.454,9.169,256.245,9.101
+			c-47.213-0.118-96.73,9.282-139.386,26.325c-42.9,17.141-77.387,41.435-97.104,68.404C0.817,129.733-4.641,157.652,3.97,184.569
+			c5.586,17.462,21.881,29.211,40.558,29.238l63.951,0.06c0.021,0,0.042,0,0.064,0c12.752-0.001,24.733-5.583,32.875-15.322
+			c8.056-9.635,11.393-22.227,9.156-34.549c-0.065-0.361-0.145-0.721-0.236-1.078l-3.365-13.082
+			c18.634-8.891,60.854-26.069,109.075-25.796c48.186,0.247,90.377,17.415,109.034,26.31l-3.419,13.008
+			c-0.097,0.368-0.179,0.739-0.249,1.112c-2.271,12.315,1.029,24.916,9.057,34.574c8.128,9.78,20.118,15.398,32.903,15.417
+			l63.951,0.06c0.021,0,0.043,0,0.064,0c18.641-0.001,34.941-11.696,40.57-29.121C516.65,158.489,511.264,130.53,492.381,104.546z
+			 M478.88,176.006c-1.515,4.688-6.238,7.958-11.502,7.958c-0.005,0-0.012,0-0.018,0l-63.951-0.06
+			c-3.684-0.005-7.125-1.606-9.441-4.393c-1.259-1.515-3.224-4.666-2.581-9.048l6.362-24.203c1.743-6.633-1.146-13.613-7.067-17.075
+			c-2.467-1.442-61.27-35.328-134.478-35.705c-0.407-0.002-0.802-0.003-1.208-0.003c-72.737,0-131.121,33.738-133.584,35.182
+			c-5.883,3.45-8.767,10.38-7.068,16.986l6.236,24.242c0.637,4.391-1.34,7.542-2.605,9.056c-2.319,2.774-5.757,4.364-9.441,4.364
+			c-0.006,0-0.012,0-0.018,0l-63.952-0.06c-5.263-0.008-9.988-3.294-11.49-7.992c-5.592-17.481-1.774-35.446,11.348-53.394
+			c34.857-47.676,123.657-82.207,211.302-82.207c0.156,0,0.323,0,0.479,0c87.732,0.126,176.665,34.971,211.462,82.853
+			C480.754,140.524,484.529,158.523,478.88,176.006z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M400.595,279.807l-47.691-50.075c-2.885-3.028-6.882-4.741-11.063-4.741h-30.82v-20.823
+			c0-8.438-6.84-15.278-15.278-15.278c-8.437,0-15.278,6.84-15.278,15.278v20.823h-48.922v-20.823
+			c0-8.438-6.84-15.278-15.278-15.278s-15.278,6.84-15.278,15.278v20.823h-30.819c-4.181,0-8.18,1.714-11.063,4.741l-47.69,50.075
+			c-37.392,39.262-57.985,90.744-57.985,144.962v62.853c0,8.438,6.84,15.278,15.278,15.278h374.592
+			c8.438,0,15.278-6.84,15.278-15.278v-62.853C458.58,370.55,437.987,319.069,400.595,279.807z M83.986,472.344v-47.575
+			c0-46.337,17.599-90.334,49.557-123.89l43.174-45.334h158.576l43.174,45.334c31.956,33.554,49.555,77.553,49.555,123.89v47.575
+			H83.986z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path
+                    d="M256.005,287.135c-44.09,0-79.959,35.87-79.959,79.959c0,44.09,35.87,79.96,79.959,79.96s79.959-35.87,79.959-79.96
+			C335.964,323.004,300.095,287.135,256.005,287.135z M256.005,416.497c-27.242,0-49.403-22.162-49.403-49.404
+			c0-27.241,22.162-49.403,49.403-49.403s49.403,22.162,49.403,49.403C305.408,394.335,283.246,416.497,256.005,416.497z" />
+                </g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+            </svg>
+
+            <p>Góp ý và khiếu nại<br>
+              0938547691
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-3 col-sm-6 col-md-3 col-lg-3 p-0">
+          <div class="delivery">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+              <g id="Buy">
+                <path
+                  d="M61,2H55a1,1,0,0,0-1,1v.382L51.869,2.316A3.014,3.014,0,0,0,50.528,2H35.872A3,3,0,0,0,34,2.658L29.819,6H13a1,1,0,0,0-1,1V23a1,1,0,0,0,1,1H43a1,1,0,0,0,1-1V15.448a9.026,9.026,0,0,0,7.943-.648L53.28,14l.72,0V15a1,1,0,0,0,1,1h6a1,1,0,0,0,1-1V3A1,1,0,0,0,61,2ZM14,22V8H37.929L36.808,9.122a3,3,0,0,0,4.242,4.242l.95-.95V22ZM52.994,12a.993.993,0,0,0-.509.143l-1.571.942a7.03,7.03,0,0,1-6.24.482L44,13.293V10.414l1.27-1.27.516.172a7.044,7.044,0,0,0,4.428,0l1.1-.367a1,1,0,0,0-.632-1.9l-1.1.368a5.029,5.029,0,0,1-3.162,0l-1.1-.368a1,1,0,0,0-1.023.242l-2,2h0L39.636,11.95a1,1,0,0,1-1.414,0,1,1,0,0,1,0-1.414l3.886-3.887a1,1,0,0,0-1.414-1.414L39.929,6H33.021l2.226-1.781A1,1,0,0,1,35.872,4H50.528a1.019,1.019,0,0,1,.447.105L54,5.618v6.375ZM60,14H56V4h4Z" />
+                <path
+                  d="M28,12a1,1,0,0,1,1,1h2a3,3,0,0,0-2-2.816V9H27v1.184A2.993,2.993,0,0,0,28,16a1,1,0,1,1-1,1H25a3,3,0,0,0,2,2.816V21h2V19.816A2.993,2.993,0,0,0,28,14a1,1,0,0,1,0-2Z" />
+                <path d="M22,14H20a1,1,0,0,0,0,2h2a1,1,0,0,0,0-2Z" />
+                <path d="M36,14H34a1,1,0,0,0,0,2h2a1,1,0,0,0,0-2Z" />
+                <path
+                  d="M43.458,49.773a2.989,2.989,0,0,0-4.1-1.1l-6.427,3.7A3,3,0,0,0,30,50H22.3l-.2-.134A10.968,10.968,0,0,0,10,49.8V49a1,1,0,0,0-1-1H3a1,1,0,0,0-1,1V61a1,1,0,0,0,1,1H9a1,1,0,0,0,1-1v-.136l.934.62A2.98,2.98,0,0,0,12.61,62H27.46a2.922,2.922,0,0,0,1.5-.4l13.4-7.73a3.017,3.017,0,0,0,1.5-2.606A2.97,2.97,0,0,0,43.458,49.773ZM8,60H4V50H8Zm33.36-7.866L27.945,59.873A.931.931,0,0,1,27.46,60H12.61a.977.977,0,0,1-.557-.173L10,58.464V52a1,1,0,0,0,.554-.167l.454-.3a8.976,8.976,0,0,1,9.985,0l.453.3A1,1,0,0,0,22,52h8a1,1,0,0,1,0,2H24a1,1,0,0,0,0,2h6a2.976,2.976,0,0,0,1.981-.764L40.368,50.4a.968.968,0,0,1,.746-.1.994.994,0,0,1,.611.472.966.966,0,0,1,.135.488A1.011,1.011,0,0,1,41.36,52.134Z" />
+                <path
+                  d="M41,28H15a1,1,0,0,0-1,1V47a1,1,0,0,0,1,1H41a1,1,0,0,0,1-1V29A1,1,0,0,0,41,28ZM29,30v4H27V30ZM40,46H16V30h9v5a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V30h9Z" />
+                <path d="M22,40H18a1,1,0,0,0,0,2h4a1,1,0,0,0,0-2Z" />
+                <path d="M26,40H25a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Z" />
+                <path d="M22,43H18a1,1,0,0,0,0,2h4a1,1,0,0,0,0-2Z" />
+                <path d="M26,43H25a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Z" />
+              </g>
+            </svg>
+
+            <p>Thanh toán<br> khi nhận hàng</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

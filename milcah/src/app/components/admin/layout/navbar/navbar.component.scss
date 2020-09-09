@@ -1,0 +1,133 @@
+.navbar-nav {
+  .nav-item {
+    margin-right: 70px;
+    .nav-link {
+      position: relative;
+      min-width: 32px;
+      display: flex;
+      flex-direction: row;
+      img {
+        height: 33px;
+        width: 33px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      .user-name {
+        font-size: 18px;
+        color: #fff;
+      }
+    }
+    .dropdown-menu {
+      border: 1px solid #e4eaf2;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .animate {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pinned-sidebar {
+  .navbar {
+    .navbar-header {
+      display: none;
+    }
+  }
+}
+.show-notification {
+  position: fixed;
+  right: 0;
+  z-index: 1;
+  top: 0px;
+  .add-product__success,
+  .remove-product__success,
+  .edit-order__success,
+  .edit-product__success {
+    background: #8ed3af;
+    color: #fff;
+    font-size: 1rem;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+    .alert-content {
+      margin-bottom: 0;
+      padding: 20px;
+      padding-left: 30px;
+      svg {
+        fill: #fff;
+        margin-right: 5px;
+      }
+    }
+  }
+  .add-product__success {
+    transform: translate(100%, 30%);
+  }
+  .remove-product__success {
+    transform: translate(100%, -58%);
+  }
+  .edit-order__success {
+    transform: translate(100%, -167%);
+  }
+  .edit-product__success {
+    transform: translate(100%, -280%);
+  }
+  .alert-forgot-error {
+    background: #f49090;
+    transform: translate(100%, -460%);
+  }
+  .add {
+    transform: translate(-4%, 30%);
+  }
+  .remove {
+    transform: translate(-4%, -58%);
+  }
+  .edit {
+    transform: translate(-4%, -168%);
+  }
+  .update {
+    transform: translate(-4%, -280%);
+  }
+}

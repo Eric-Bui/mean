@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="container-content" style="margin-top: 100px;">
+    <div class="products-title">
+      <h1>{{ products?.category.name }}</h1>
+    </div>
+    <div class="row">
+      <div class="products-search w-100 mb-5">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <div class="search d-flex">
+            <input class="form-control" (change)="searchChange(name)" type="text" name="q"
+              placeholder="Tìm kiếm sản phẩm..." [(ngModel)]="name" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-list">
+      <div class="row">
+        <ng-container *ngIf="products?.products.length >0 ; else noProduct">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+            *ngFor="let product of products?.products | filter: name | paginate : {id : 'panigation', itemsPerPage :itemsPerPage,currentPage:currentPage,totalItems:totalItems } ">
+            <app-product-item [productItem]="product"></app-product-item>
+          </div>
+          <div class="not-found" *ngIf="search?.length == 0">
+            <p>Không tìm thấy sản phẩm</p>
+          </div>
+        </ng-container>
+        <div class="control text-center mt-5 pb-3 w-100">
+          <pagination-controls class="my-pagination" id="panigation" (pageChange)="pageChanged($event)">
+          </pagination-controls>
+        </div>
+        <ng-template #noProduct>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 class="text-center">Sản phẩm tạm thời hết hàng!</h2>
+          </div>
+
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="container-content">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
+      <div id="carouselExampleIndicators" class="carousel" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let image of product?.images; let f = first" [class.active]="f === true">
+            <img src="{{ image.url}}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" [attr.data-slide-to]="i"
+            *ngFor="let image of product?.images; let i = index  let f = first" [class.active]="f === true">
+            <a href=""><img src="{{ image.url }}" alt=""></a>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-5">
+      <div class="content">
+        <div class="name-title mt-3">
+          <h2>{{ product?.name }}</h2>
+          <h2 class="my-5">{{  product?.price | number: '1.0-3'}} đ</h2>
+          <div class="quantity-checkout">
+            <div class="quantity">
+              <input type="button" value="-" (click)="minus()">
+              <input type="number" name="" id="quantity" value="1" min="1" disabled [(ngModel)]="quantity"
+                [ngModelOptions]="{standalone: true}">
+              <input type="button" value="+" (click)="push()">
+            </div>
+            <div class="add-cart">
+              <input type="button" class="button btn-addCart" (click)="addToCart(product?._id, quantity)"
+                value="Thêm vào giỏ">
+            </div>
+          </div>
+          <div class="product-meta">
+            <span class="sku-wrapper">
+              <span class="label">SKU</span>
+              <span class="sku">{{product?.SKU}}</span>
+            </span>
+            <span class="posted_in">
+              <span class="label">Category</span>
+              <a href="">abc</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="related-product">
+    <h2>Sản phẩm liên quan</h2>
+    <div class="products-list">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 item" *ngFor="let product of arrProduct">
+          <app-product-item [productItem]="product"></app-product-item>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

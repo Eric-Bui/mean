@@ -1,0 +1,215 @@
+<div>
+
+  <h4 class="text-muted mb-4">Sản phẩm</h4>
+
+  <div class="row mb-4">
+
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0 card-body">
+        <div class="card-title mb-1 p-3">
+          <div class="add-product">
+            <a routerLink="/admin/products/add" class="button">Thêm sản phẩm</a>
+          </div>
+          <div class="search">
+            <input class="form-control" type="text" (change)="changeSearch(name)" name="q"
+              placeholder="Tìm kiếm sản phẩm..." [(ngModel)]="name" />
+          </div>
+        </div>
+        <ng-container *ngIf="totalItems > 0; else noProduct">
+          <div class="card-body">
+            <div class="table-responsive-md">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Sản phẩm</th>
+                    <th scope="col">Số Lượng</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let item of products | filter: name | paginate : {id : 'panigation', itemsPerPage :itemsPerPage,currentPage:currentPage,totalItems:totalItems } ; let i = index ">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td> <img *ngFor="let image of item.images | slice: 0:2" src="{{ image.url }}" alt=""></td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.qty }}</td>
+                    <td class="status">
+                      <span *ngIf="item.active == true" class="text-success status-product"><span class="mr-3">Đang
+                          bán</span>
+                        <span class="arrow">
+                          <svg _ngcontent-vch-c2="" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            id="Capa_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"
+                            x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+                            <g _ngcontent-vch-c2="">
+                              <g _ngcontent-vch-c2="">
+                                <path _ngcontent-vch-c2="" d="M506.157,132.386c-7.803-7.819-20.465-7.831-28.285-0.029l-207.73,207.299c-7.799,7.798-20.486,7.797-28.299-0.015
+                        L34.128,132.357c-7.819-7.803-20.481-7.79-28.285,0.029c-7.802,7.819-7.789,20.482,0.029,28.284l207.701,207.27
+                        c11.701,11.699,27.066,17.547,42.433,17.547c15.358,0,30.719-5.846,42.405-17.533L506.128,160.67
+                        C513.946,152.868,513.959,140.205,506.157,132.386z"></path>
+                              </g>
+                            </g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                          </svg>
+                        </span>
+                      </span>
+                      <span *ngIf="item.active == false || !item.active" class="text-danger status-product">
+                        <span class="mr-3">Đang ẩn</span>
+                        <span class="arrow">
+                          <svg _ngcontent-vch-c2="" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            id="Capa_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"
+                            x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+                            <g _ngcontent-vch-c2="">
+                              <g _ngcontent-vch-c2="">
+                                <path _ngcontent-vch-c2="" d="M506.157,132.386c-7.803-7.819-20.465-7.831-28.285-0.029l-207.73,207.299c-7.799,7.798-20.486,7.797-28.299-0.015
+                          L34.128,132.357c-7.819-7.803-20.481-7.79-28.285,0.029c-7.802,7.819-7.789,20.482,0.029,28.284l207.701,207.27
+                          c11.701,11.699,27.066,17.547,42.433,17.547c15.358,0,30.719-5.846,42.405-17.533L506.128,160.67
+                          C513.946,152.868,513.959,140.205,506.157,132.386z"></path>
+                              </g>
+                            </g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                            <g _ngcontent-vch-c2=""></g>
+                          </svg>
+                        </span>
+                      </span>
+                      <select id="change_status_product" class="custom-select" style="display: none;"
+                        (change)="changeStatus($event.target.value, item._id)">
+                        <option [selected]="item.active == false || !item.active" value="0">Đang ẩn</option>
+                        <option [selected]="item.active == true" value="1">Đang bán</option>
+                      </select>
+                    </td>
+                    <td class="action">
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2" title="Sửa"
+                        routerLink="edit/{{ item._id }}">
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 348.882 348.882"
+                          style="enable-background:new 0 0 348.882 348.882;" xml:space="preserve">
+                          <g>
+                            <path
+                              d="M333.988,11.758l-0.42-0.383C325.538,4.04,315.129,0,304.258,0c-12.187,0-23.888,5.159-32.104,14.153L116.803,184.231
+                            c-1.416,1.55-2.49,3.379-3.154,5.37l-18.267,54.762c-2.112,6.331-1.052,13.333,2.835,18.729c3.918,5.438,10.23,8.685,16.886,8.685
+                            c0,0,0.001,0,0.001,0c2.879,0,5.693-0.592,8.362-1.76l52.89-23.138c1.923-0.841,3.648-2.076,5.063-3.626L336.771,73.176
+                            C352.937,55.479,351.69,27.929,333.988,11.758z M130.381,234.247l10.719-32.134l0.904-0.99l20.316,18.556l-0.904,0.99
+                            L130.381,234.247z M314.621,52.943L182.553,197.53l-20.316-18.556L294.305,34.386c2.583-2.828,6.118-4.386,9.954-4.386
+                            c3.365,0,6.588,1.252,9.082,3.53l0.419,0.383C319.244,38.922,319.63,47.459,314.621,52.943z" />
+                            <path
+                              d="M303.85,138.388c-8.284,0-15,6.716-15,15v127.347c0,21.034-17.113,38.147-38.147,38.147H68.904
+                            c-21.035,0-38.147-17.113-38.147-38.147V100.413c0-21.034,17.113-38.147,38.147-38.147h131.587c8.284,0,15-6.716,15-15
+                            s-6.716-15-15-15H68.904c-37.577,0-68.147,30.571-68.147,68.147v180.321c0,37.576,30.571,68.147,68.147,68.147h181.798
+                            c37.576,0,68.147-30.571,68.147-68.147V153.388C318.85,145.104,312.134,138.388,303.85,138.388z" />
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                          <g>
+                          </g>
+                        </svg>
+                      </a>
+                      <a id="delete" class="btn btn-sm btn-outline-lightning rounded-0 mr-2" title="Xóa">
+                        <span id="first">
+                          <svg height="427pt" viewBox="-40 0 427 427.00131" width="427pt"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="m232.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0" />
+                            <path
+                              d="m114.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0" />
+                            <path
+                              d="m28.398438 127.121094v246.378906c0 14.5625 5.339843 28.238281 14.667968 38.050781 9.285156 9.839844 22.207032 15.425781 35.730469 15.449219h189.203125c13.527344-.023438 26.449219-5.609375 35.730469-15.449219 9.328125-9.8125 14.667969-23.488281 14.667969-38.050781v-246.378906c18.542968-4.921875 30.558593-22.835938 28.078124-41.863282-2.484374-19.023437-18.691406-33.253906-37.878906-33.257812h-51.199218v-12.5c.058593-10.511719-4.097657-20.605469-11.539063-28.03125-7.441406-7.421875-17.550781-11.5546875-28.0625-11.46875h-88.796875c-10.511719-.0859375-20.621094 4.046875-28.0625 11.46875-7.441406 7.425781-11.597656 17.519531-11.539062 28.03125v12.5h-51.199219c-19.1875.003906-35.394531 14.234375-37.878907 33.257812-2.480468 19.027344 9.535157 36.941407 28.078126 41.863282zm239.601562 279.878906h-189.203125c-17.097656 0-30.398437-14.6875-30.398437-33.5v-245.5h250v245.5c0 18.8125-13.300782 33.5-30.398438 33.5zm-158.601562-367.5c-.066407-5.207031 1.980468-10.21875 5.675781-13.894531 3.691406-3.675781 8.714843-5.695313 13.925781-5.605469h88.796875c5.210937-.089844 10.234375 1.929688 13.925781 5.605469 3.695313 3.671875 5.742188 8.6875 5.675782 13.894531v12.5h-128zm-71.199219 32.5h270.398437c9.941406 0 18 8.058594 18 18s-8.058594 18-18 18h-270.398437c-9.941407 0-18-8.058594-18-18s8.058593-18 18-18zm0 0" />
+                            <path
+                              d="m173.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0" />
+                          </svg>
+                        </span>
+                        <span id="last" style="display: none;">
+                          <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                            viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                            <path fill="#000"
+                              d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                              <animateTransform attributeType="xml" attributeName="transform" type="rotate"
+                                from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                            </path>
+                          </svg>
+                        </span>
+                      </a>
+                      <div id="confirm" class="confirm">
+                        <div class="content">
+                          <button id="cancel_order" type="button" class="btn-cancel">Hủy</button>
+                          <button (click)="delProduct(item._id)" id="action_order" type="button"
+                            class="btn-delete">Xóa</button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="control text-center mt-5 pb-3">
+              <pagination-controls class="my-pagination" id="panigation" (pageChange)="pageChanged($event)">
+              </pagination-controls>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #noProduct>
+          <div class="not-found text-center">
+            <h3 *ngIf="totalItems == 0">Không tìm thấy sản phẩm</h3>
+          </div>
+        </ng-template>
+      </div>
+
+    </div>
+  </div>
+</div>

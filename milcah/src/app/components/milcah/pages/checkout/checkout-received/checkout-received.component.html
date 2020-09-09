@@ -1,0 +1,72 @@
+<div class="container info-order">
+  <div class="info-header">
+    <h1>Thông tin đặt hàng</h1>
+  </div>
+  <div class="info-body">
+    <h4>Đơn đặt hàng của quý khách đã được nhận!</h4>
+    <div class="info-checkout">
+      <ul>
+        <li>Số hóa đơn : <strong>{{info?.orderId}}</strong></li>
+        <li>Ngày đặt hàng : <strong>{{info?.createDate}}</strong></li>
+        <li>Số tiền : <strong>{{info?.amount | number: '1.0-3' }} đ</strong></li>
+        <li>Phương thức thanh toán :
+          <strong *ngIf="info?.payment_method == 1">Thanh toán khi nhận hàng(COD)</strong>
+          <strong *ngIf="info?.payment_method == 2">Chuyển khoản qua ngân hàng</strong>
+          <strong *ngIf="info?.payment_method == 3">Thanh toán qua cổng VNPAY</strong>
+        </li>
+      </ul>
+    </div>
+    <section class="order-details">
+      <h2>Chi tiết đơn hàng</h2>
+      <table class="woocomerce-table">
+        <thead>
+          <tr>
+            <th class="product-name">Sản phẩm</th>
+            <th class="product-total">Chi tiết</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="order-item" *ngFor="let item of order?.cart | keyvalue">
+            <td class="product-name">
+              <span class="thumb"><img src="{{ item.value.item.images[0].url}}" alt=""></span>
+              <a [routerLink]="['/products', item.value.item._id]"> {{ item.value.item.name }} </a>
+              <strong>x&nbsp;{{ item.value.qty }}</strong>
+            </td>
+            <td class="product-total">{{ item.value.price | number: '1.0-3' }} đ</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th class="amount">Tạm tính</th>
+            <td>
+              <span class="amount">{{ order?.totalPrice | number: '1.0-3'}} đ</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Phí vận chuyển:</th>
+            <td>{{ shipping | number: '1.0-3' }} đ</td>
+          </tr>
+          <tr>
+            <th scope="row">Khách hàng thân thiết: -3%</th>
+            <td>- {{ discountMember | number: '1.0-3' }} đ</td>
+          </tr>
+          <tr>
+            <th scope="row">Hình thức thanh toán:</th>
+            <td>
+              <span *ngIf="order?.payment_method == 1">Thanh toán khi nhận hàng(COD)</span>
+              <span *ngIf="order?.payment_method == 2">Chuyển khoản qua ngân hàng</span>
+              <span *ngIf="order?.payment_method == 3">Thanh toán qua cổng VNPAY</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Tổng:</th>
+            <td><span class="total-amount font-weight-bold">{{ total | number: '1.0-3' }} đ</span></td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <div class="thank-you">
+      <p>Xin cảm ơn! Hẹn gặp lại quý khách</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.transaction-order {
+  margin-top: 150px;
+  .transaction-header {
+    h1 {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+  }
+  .transaction-body {
+    h4 {
+      margin-bottom: 50px;
+      font-weight: 600;
+    }
+    .transaction-result {
+      ul {
+        list-style: disc;
+        margin-left: 30px;
+        li {
+          display: list-item;
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .transaction-info {
+      margin-top: 30px;
+      text-align: center;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .transaction-order {
+    margin-top: 50px;
+    .transaction-header {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    .transaction-body {
+      h4 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

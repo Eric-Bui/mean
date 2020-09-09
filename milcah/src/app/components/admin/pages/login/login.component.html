@@ -1,0 +1,145 @@
+<div class="container-fluid">
+  <div class="login-wrapper">
+    <div class="form-entry">
+      <h2 class="title">Đăng nhập</h2>
+      <form class="login" [formGroup]="login" (ngSubmit)="onLogin()" admin>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Tên đăng nhập</label>
+          <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Mật khẩu</label>
+          <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button id="btn_login" type="submit" class="button btn-addCart w-50" [disabled]="!login.valid">
+          <span id="first">Đăng nhập</span>
+          <span id="last" style="display: none;">
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 50 50"
+              style="enable-background:new 0 0 50 50;" xml:space="preserve">
+              <path fill="#fff"
+                d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                  to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+              </path>
+            </svg>
+          </span>
+        </button>
+      </form>
+    </div>
+    <div class="alert-login__success" style="display: none;">
+      <p>Xin chào
+        <strong>Admin</strong>
+      </p>
+    </div>
+    <div class="show-notification">
+      <div class="login-error" role="alert">
+        <p class="alert-content">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            <g>
+              <g>
+                <path d="M256,0C114.508,0,0,114.497,0,256c0,141.493,114.497,256,256,256c141.492,0,256-114.497,256-256
+                    C512,114.507,397.503,0,256,0z M256,472c-119.384,0-216-96.607-216-216c0-119.385,96.607-216,216-216
+                    c119.384,0,216,96.607,216,216C472,375.385,375.393,472,256,472z" />
+              </g>
+            </g>
+            <g>
+              <g>
+                <path d="M343.586,315.302L284.284,256l59.302-59.302c7.81-7.81,7.811-20.473,0.001-28.284c-7.812-7.811-20.475-7.81-28.284,0
+                    L256,227.716l-59.303-59.302c-7.809-7.811-20.474-7.811-28.284,0c-7.81,7.811-7.81,20.474,0.001,28.284L227.716,256
+                    l-59.302,59.302c-7.811,7.811-7.812,20.474-0.001,28.284c7.813,7.812,20.476,7.809,28.284,0L256,284.284l59.303,59.302
+                    c7.808,7.81,20.473,7.811,28.284,0C351.398,335.775,351.397,323.112,343.586,315.302z" />
+              </g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+          </svg>
+          Tên đăng nhập hoặc mật khẩu không tồn tại!
+        </p>
+      </div>
+      <div class="login-success" role="alert">
+        <p class="alert-content">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            <g>
+              <g>
+                <path d="M383.841,171.838c-7.881-8.31-21.02-8.676-29.343-0.775L221.987,296.732l-63.204-64.893
+      c-8.005-8.213-21.13-8.393-29.35-0.387c-8.213,7.998-8.386,21.137-0.388,29.35l77.492,79.561
+      c4.061,4.172,9.458,6.275,14.869,6.275c5.134,0,10.268-1.896,14.288-5.694l147.373-139.762
+      C391.383,193.294,391.735,180.155,383.841,171.838z" />
+              </g>
+            </g>
+            <g>
+              <g>
+                <path d="M256,0C114.84,0,0,114.84,0,256s114.84,256,256,256s256-114.84,256-256S397.16,0,256,0z M256,470.487
+      c-118.265,0-214.487-96.214-214.487-214.487c0-118.265,96.221-214.487,214.487-214.487c118.272,0,214.487,96.221,214.487,214.487
+      C470.487,374.272,374.272,470.487,256,470.487z" />
+              </g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+          </svg>
+          Đăng nhập thành công!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/admin.scss";
+@font-face {
+  src: url(./assets/fonts/Quicksand-VariableFont_wght.ttf);
+  font-family: Quicksand;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+}
+.wrapper {
+  padding: 0;
+}
+.container-content {
+  width: 88%;
+  margin: 0 auto;
+}
+img {
+  width: 100%;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+a {
+  color: #000;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.modal-backdrop.show {
+  z-index: 0;
+}
+
+.flex-center-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-center-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-hover {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    width: 0;
+    border-bottom: 2px solid;
+    transition: width 0.3s;
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+.btn-custom {
+  padding: 13px 29px;
+  color: #2091f9;
+  letter-spacing: 0.05em;
+  border: 1px solid #2091f9;
+  background-image: linear-gradient(30deg, #fff 50%, transparent 0);
+  background-size: 850px;
+  background-repeat: no-repeat;
+  background-position: 0;
+  transition: 0.3s ease-in-out;
+  border-radius: 0;
+  opacity: 0.8;
+  &:hover {
+    background-position: 100%;
+    color: #2091f9;
+    font-weight: bold;
+  }
+}
+
+.button {
+  padding: 19px 30px;
+  width: 100%;
+  white-space: nowrap;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.btn-addCart {
+  background: black;
+  color: #fff;
+  border: 1px solid #000;
+  transition: 0.2s;
+  &:hover {
+    color: #fff;
+  }
+}
+.btn-checkout {
+  color: #000;
+  font-weight: 500;
+  border: 1px solid #000;
+  transition: 0.3s;
+  &:hover {
+    background: #000;
+    color: #fff !important;
+  }
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}

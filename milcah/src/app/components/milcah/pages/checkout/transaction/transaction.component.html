@@ -1,0 +1,26 @@
+<div class="container transaction-order">
+  <div class="transaction-header">
+    <h1>Thông tin giao dịch</h1>
+  </div>
+  <div class="transaction-body">
+    <ng-container *ngIf="info?.vnp_ResponseCode == 00; else NotSuccess">
+      <h4 class="text-success">Giao dịch thành công</h4>
+      <h5>Cảm ơn qúy khách đã mua hàng</h5>
+    </ng-container>
+    <ng-template #NotSuccess>
+      <h4 class="text-danger">Giao dịch thất bại</h4>
+    </ng-template>
+
+    <div class="transaction-result">
+      <ul>
+        <li>Số hóa đơn : <strong>{{info?.vnp_TxnRef}}</strong></li>
+        <li>Ngân hàng : <strong>{{info?.vnp_BankCode}}</strong></li>
+        <li>Số tiền : <strong>{{info?.vnp_Amount/100 | number: '1.0-3' }} đ</strong></li>
+      </ul>
+    </div>
+    <div class="transaction-info">
+      <button *ngIf="info?.vnp_ResponseCode == 00" type="submit" class="button btn-addCart w-50"
+        [routerLink]="['/checkout/checkout-received/', info?.vnp_TxnRef]">XEM ĐƠN HÀNG</button>
+    </div>
+  </div>
+</div>

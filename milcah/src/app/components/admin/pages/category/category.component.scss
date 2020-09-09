@@ -1,0 +1,59 @@
+img {
+  width: 60px;
+}
+svg {
+  width: 15px;
+  height: 15px;
+}
+table {
+  td,
+  th {
+    vertical-align: middle;
+    text-align: center;
+  }
+  td {
+    font-size: 16px;
+  }
+}
+input {
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0;
+  outline: none;
+  transition: 0.3s;
+  font-size: 20px;
+  &:focus {
+    box-shadow: none;
+    border-bottom: 1px solid #000;
+  }
+}
+
+button {
+  font-size: 18px;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  .card-body {
+    .form-group {
+      margin-bottom: 3rem;
+    }
+    .group-review {
+      height: 130px;
+      .preview-images {
+        height: 100%;
+        image {
+          height: 80px;
+        }
+      }
+    }
+  }
+  .card-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+      width: 70%;
+    }
+  }
+}

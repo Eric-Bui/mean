@@ -1,0 +1,144 @@
+svg {
+  width: 20px;
+  height: 20px;
+}
+
+.container-fluid {
+  height: 100vh;
+  background: #ebebeb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .login-wrapper {
+    height: 530px;
+    width: 560px;
+    background: #fff;
+    position: relative;
+    padding: 70px;
+    overflow: hidden;
+    .title {
+      margin-bottom: 30px;
+    }
+    .form-entry {
+      .login {
+        .form-group {
+          margin-bottom: 30px;
+          input {
+            color: #555555;
+            line-height: 1.2;
+            font-size: 18px;
+            display: block;
+            width: 100%;
+            background: transparent;
+            height: 55px;
+            padding: 0 25px 0 25px;
+            border-radius: 3px;
+            transition: 0.3s;
+            &:focus {
+              box-shadow: none;
+              border: 1px solid #000;
+            }
+            &[type="password"] {
+              letter-spacing: 3px;
+            }
+          }
+        }
+        .button {
+          transition: 0.3s;
+          &[disabled] {
+            opacity: 0.4;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+    .alert-login__success {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      p {
+        padding: 50px 20px;
+        font-size: 20px;
+      }
+    }
+    .show-notification {
+      position: absolute;
+      right: 10px;
+      top: 30px;
+      z-index: 1;
+      overflow: hidden;
+      .login-error,
+      .login-success {
+        background: #8ed3af;
+        color: #fff;
+        font-size: 1rem;
+        transition: 0.3s;
+        transition-delay: 0.3s;
+        .alert-content {
+          margin-bottom: 0;
+          padding: 20px;
+          padding-left: 30px;
+          svg {
+            fill: #fff;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .login-error {
+        background: #f49090;
+        transform: translateX(110%);
+      }
+      .login-success {
+        transform: translate(110%, -100%);
+      }
+      .error {
+        transform: translateX(0);
+      }
+      .success {
+        transform: translate(0, -100%);
+      }
+    }
+  }
+}
+.login-wrapper {
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,68 @@
+.contact-wrapper {
+  .contact-header {
+    background: no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    margin-bottom: 50px;
+    height: 600px;
+    position: relative;
+    text-align: center;
+    .bg-image {
+      background: url(../../../../../assets/images/contact.jpg);
+      opacity: 0.5;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+    .contact-content {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 50%;
+      z-index: 2;
+      transform: translateY(-50%);
+      z-index: -1;
+      .contact-title {
+        h1 {
+          //color: #fff;
+          font-size: 5rem;
+          letter-spacing: 5px;
+          margin-bottom: 50px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .site-content {
+    .contact-infomation {
+      margin-left: 16%;
+      h2 {
+        font-weight: 600;
+        margin-bottom: 60px;
+      }
+    }
+    .milcah-info {
+      ul {
+        li {
+          justify-content: start;
+          margin-bottom: 15px;
+          .info-name {
+            text-transform: uppercase;
+            font-weight: 600;
+            flex: 0 0 160px;
+          }
+          .info-value {
+            color: #838889;
+            font-size: 18px;
+            svg {
+              height: 20px;
+              width: 20px;
+              fill: #838889;
+            }
+          }
+        }
+      }
+    }
+  }
+}

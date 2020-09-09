@@ -1,0 +1,120 @@
+.container-fluid {
+  background: #f2f3f7;
+  .container-content {
+    padding-top: 100px;
+    .products-title {
+      padding-top: 50px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    .products-list {
+      .not-found {
+        width: 100%;
+        text-align: center;
+        p {
+          font-size: 25px;
+        }
+      }
+    }
+    .products-search {
+      .categories {
+        .custom-select {
+          position: relative;
+          border: none;
+          background: none;
+          outline: none;
+          border-radius: 0;
+          width: 70%;
+          font-size: 18px;
+          font-weight: 600;
+          border-bottom: 2px solid #ced4da;
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+    .search {
+      justify-content: flex-end;
+      input {
+        border: none;
+        border-bottom: 1px solid #ced4da;
+        border-radius: 0;
+        outline: none;
+        transition: 0.3s;
+        width: 50%;
+        font-size: 18px;
+        &:focus {
+          box-shadow: none;
+          border-bottom: 1px solid #000;
+        }
+        &:hover {
+          border-bottom: 1px solid #000;
+        }
+      }
+    }
+  }
+}
+.my-pagination::ng-deep .ngx-pagination {
+  li {
+    border: 1px solid #000;
+    a {
+      outline: none;
+    }
+  }
+  .pagination-previous {
+    &::before {
+      content: "";
+      margin-right: 0;
+      //display: initial;
+    }
+    a {
+      &::before {
+        content: "";
+        margin-right: 0;
+        //display: initial;
+      }
+    }
+  }
+  .pagination-next {
+    &::after {
+      content: "";
+      margin-left: 0;
+      display: initial;
+    }
+    a {
+      &::after {
+        content: "";
+        margin-left: 0;
+        display: initial;
+      }
+    }
+  }
+  .current {
+    background: #000 !important;
+  }
+}
+@media (max-width: 575px) {
+  .container-fluid {
+    .container-content {
+      padding-top: 50px;
+      .products-title {
+        padding-top: 30px;
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      .row {
+        .products-search {
+          div {
+            &.search-title {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+}

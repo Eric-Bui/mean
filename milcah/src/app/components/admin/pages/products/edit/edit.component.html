@@ -1,0 +1,87 @@
+<div class="container">
+  <h4 class="mb-4 text-muted">Cập nhật sản phẩm </h4>
+  <div class="row">
+    <div class="col-md-12 mb-4 ">
+      <div class="card border-0 rounded-0">
+
+        <div class="card-body">
+          <div class="comeback">
+            <a class="btn-back" routerLink="/admin/products">Quay lại</a>
+          </div>
+          <form [formGroup]="editProduct" (ngSubmit)="edit()">
+            <div class="form-group group-select">
+              <div class="select">
+                <label for="select_cat">Danh mục sản phẩm</label>
+
+                <select class="form-control rounded-0" id="select_cat" formControlName="selected">
+                  <option *ngFor="let category of categories" value="{{ category._id }}"
+                    [selected]="category._id == product?.idCat">{{ category.name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Tên sản phẩm</label>
+              <input type="text" class="form-control  rounded-0" id="name" formControlName="name"
+                value="{{ product?.name }}">
+            </div>
+            <div class="form-group group-price-qty">
+              <div class="group-price__input">
+                <label for="group-price__input">Giá nhập</label>
+                <input name="price" id="group-price__input" type="text" class="form-control form-info"
+                  value="{{ product?.price_input }}" formControlName="price_input">
+              </div>
+              <div class="group-price">
+                <label for="group-price">Giá bán</label>
+                <input id="group-price" type="number" class="form-control form-info" value="{{ product?.price }}"
+                  formControlName="price">
+
+              </div>
+              <div class="group-qty">
+                <label for="group-qty">Số lượng</label>
+                <input id="group-qty" type="number" class="form-control form-info" value="{{ product?.qty }}"
+                  formControlName="qty">
+
+              </div>
+            </div>
+            <div class="form-group group-image">
+              <label>Chọn ảnh</label>
+              <div class="custom-file">
+                <input type="file" multiple="multiple" class="custom-file-input" id="customFile"
+                  (change)="selectFile($event)">
+                <label class="custom-file-label rounded-0" for="customFile">...</label>
+              </div>
+            </div>
+
+            <div class="form-group group-review">
+              <div class="old-image">
+                <ul class="image-list">
+                  <li class="image-item" *ngFor="let image of product?.images;">
+                    <img src="{{ image.url }}" alt="">
+                  </li>
+                </ul>
+              </div>
+              <div class="preview-images"></div>
+            </div>
+            <div class="form-group text-center">
+              <button id="create" type="submit" class="button btn-addCart w-50">
+                <span id="first">Cập nhật</span>
+                <span id="last" style="display: none;">
+                  <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="25px" height="25px"
+                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <path fill="#fff"
+                      d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                      <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                        to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                    </path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.page-footer {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    height: 1px;
+    width: 70%;
+    background-color: rgb(229, 230, 231);
+  }
+}

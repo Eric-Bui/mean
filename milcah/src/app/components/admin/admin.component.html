@@ -1,0 +1,12 @@
+<div class="wrapper_admin default-theme" [ngClass]="getClasses()" style="margin-top: 60px;">
+  <app-navbar></app-navbar>
+  <main>
+    <app-sidebar></app-sidebar>
+    <div class="pages container-fluid p-4 " style="height: calc(100vh - 60px);">
+      <router-outlet></router-outlet>
+      <hr>
+      <app-admin-footer></app-admin-footer>
+    </div>
+    <div class="overlay" (click)="toggleSidebar()"></div>
+  </main>
+</div>
