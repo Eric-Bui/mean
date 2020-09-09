@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+
 const path = require("path");
 
 const userRoute = require("./routes/user.route");
