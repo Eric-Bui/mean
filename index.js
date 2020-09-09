@@ -28,8 +28,10 @@ const PORT = process.env.PORT || 3000;
 
 // Add headers
 
+app.use(express.static(__dirname + "/milcah/dist/milcash"));
+
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "milcah/dist/milcash/index.html"));
+  res.sendFile(path.join(__dirname, "/milcah/dist/milcash/index.html"));
 });
 
 app.use(bodyParser.json()); // for parsing application/json
@@ -37,7 +39,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(cookieParser(process.env.SESSTION_SECRET));
 //app.use(sessionMiddleware);
 
-app.use(express.static("public"));
 //routes
 
 app.use("/users", userRoute);
