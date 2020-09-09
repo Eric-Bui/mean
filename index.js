@@ -28,18 +28,20 @@ const PORT = process.env.PORT || 3000;
 
 // Add headers
 
-app.use(express.static(__dirname + "/milcah/dist/milcash"));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/milcah/dist/milcash/index.html"));
-});
+// Set Static Folder
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSTION_SECRET));
 //app.use(sessionMiddleware);
 
+//app.use(express.static("public"));
 //routes
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/milcah/index.html"));
+});
 
 app.use("/users", userRoute);
 app.use("/products", productRoute);
