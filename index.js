@@ -8,11 +8,6 @@ const cookieParser = require("cookie-parser");
 
 const path = require("path");
 
-const userRoute = require("./routes/user.route");
-const authRoute = require("./routes/auth.route");
-const productRoute = require("./routes/product.route");
-const cartRoute = require("./routes/cart.route");
-
 const apiUserRoute = require("./routes/api.user.route");
 const apiCartRoute = require("./routes/api.cart.route");
 const apiClient = require("./routes/api.route");
