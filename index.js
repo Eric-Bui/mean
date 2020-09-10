@@ -39,11 +39,6 @@ app.use(cookieParser(process.env.SESSTION_SECRET));
 //app.use(express.static("public"));
 //routes
 
-app.use("/users", userRoute);
-app.use("/products", productRoute);
-app.use("/auth", authRoute);
-app.use("/cart", cartRoute);
-
 app.use("/api/users", apiUserRoute);
 app.use("/api/cart", apiCartRoute);
 app.use("/api/transaction", apiTransaction);
