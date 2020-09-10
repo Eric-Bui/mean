@@ -73,8 +73,8 @@
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <div class="row">
-                <div class="col-xs-12 col-md-6 col-sm-6 col-lg-3 slide-multi" *ngFor="let item of product | slice: 0:4;"
-                  data-aos="zoom-in">
+                <div class="col-6 col-xs-12 col-md-6 col-sm-6 col-lg-3 slide-multi"
+                  *ngFor="let item of product | slice: 0:4;" data-aos="zoom-in">
                   <div class="card mb-2">
                     <div class="image">
                       <img class="card-img-top" *ngFor="let image of item.images" src="{{ image.url }}"
@@ -83,7 +83,7 @@
 
                     <div class="card-body">
                       <h5 class="card-title">{{ item.name }}</h5>
-                      <p class="card-text font-weight-bold">{{ item.price | number: '1.0-3' }} đ</p>
+                      <p class="card-text">{{ item.price | number: '1.0-3' }} đ</p>
                       <a class="link-hover" (click)="addToCart(item._id)">Thêm vào Giỏ</a>
                       <span class="mx-3">|</span>
                       <a class="link-hover" [routerLink]="['/products', item._id]">Chi Tiết</a>
@@ -96,17 +96,17 @@
             <div class="carousel-item">
 
               <div class="row">
-                <div class="col-xs-12 col-md-6 col-sm-6 col-lg-3 slide-multi" *ngFor="let item of product | slice: 5:9;"
-                  data-aos="zoom-in">
+                <div class="col-6 col-xs-12 col-md-6 col-sm-6 col-lg-3 slide-multi"
+                  *ngFor="let item of product | slice: 5:9;" data-aos="zoom-in">
                   <div class="card mb-2">
                     <div class="image">
-                      <img class="card-img-top" *ngFor="let image of item.images" src="{{ image.url }}"
-                        alt="Card image cap">
+                      <img [routerLink]="['/products', item._id]" class="card-img-top" *ngFor="let image of item.images"
+                        src="{{ image.url }}" alt="Card image cap">
                     </div>
 
                     <div class="card-body">
                       <h5 class="card-title">{{ item.name }}</h5>
-                      <p class="card-text font-weight-bold">{{ item.price | number: '1.0-3' }} đ</p>
+                      <p class="card-text">{{ item.price | number: '1.0-3' }} đ</p>
                       <a class="link-hover" (click)="addToCart(item._id)">Thêm vào Giỏ</a>
                       <span class="mx-3">|</span>
                       <a class="link-hover" [routerLink]="['/products', item._id]">Chi Tiết</a>
@@ -147,10 +147,11 @@
             <p>Khám phá những sản phẩm bán chạy nhất của chúng tôi.</p>
           </div>
         </div>
-        <div class="col-lg-4 col-sm-6 mt-4 col-xl-3" *ngFor="let item of product | slice: 0:7" data-aos="fade-up">
+        <div class="col-6 col-lg-4 col-sm-6 mt-4 col-xl-3" *ngFor="let item of product | slice: 0:7" data-aos="fade-up">
           <div class="product">
             <a class="product-image d-block">
-              <img *ngFor="let image of item.images" class="img-fluid" src="{{ image.url }}" alt="">
+              <img [routerLink]="['/products', item._id]" *ngFor="let image of item.images" class="img-fluid"
+                src="{{ image.url }}" alt="">
             </a>
             <div class="product-summary">
               <h5>{{ item.name}}</h5>

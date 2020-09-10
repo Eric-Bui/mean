@@ -225,19 +225,20 @@
     <a class="btn nav-link" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
   </div>
   <div class="nav-toggler-right mr-4 d-md-none">
-    <button class="" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
-      aria-controls="collapseBasic">
-      <img src="../../../../../assets/images/user.jpg" class="img-fluid" alt="">
-    </button>
-    <span class="user-profile nav-alert bg-danger"></span>
+    <div class="dropdown">
+      <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMobile" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <img src="../../../../../assets/images/user.jpg" class="img-fluid" alt="">
+      </button>
+      <div class="dropdown-menu dropdown-menu-right animate slideI" aria-labelledby="dropdownMobile">
+        <a class="dropdown-item" href="#">Thông tin tài khoản</a>
+        <a class="dropdown-item" (click)=" logout()">Đăng xuất</a>
+      </div>
+    </div>
   </div>
-  <ul class="navbar-nav flex-fill mt-1 align-items-center left-nav">
-    <li class="nav-item navicon">
-      <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
-    </li>
 
-  </ul>
-  <div class="collapse navbar-collapse right-nav" id="collapseBasic">
+
+  <div class="collapse navbar-collapse right-nav" id="collapse">
     <ul class="navbar-nav ">
       <li class="nav-item">
         <div class="dropdown">

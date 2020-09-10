@@ -1,14 +1,14 @@
 <div class="container-content">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-      <div id="carouselExampleIndicators" class="carousel" data-interval="false">
+      <div id="sildeImage" class="carousel" data-interval="false">
         <div class="carousel-inner">
           <div class="carousel-item" *ngFor="let image of product?.images; let f = first" [class.active]="f === true">
             <img src="{{ image.url}}" class="d-block w-100" alt="...">
           </div>
         </div>
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" [attr.data-slide-to]="i"
+          <li data-target="#sildeImage" [attr.data-slide-to]="i"
             *ngFor="let image of product?.images; let i = index  let f = first" [class.active]="f === true">
             <a href=""><img src="{{ image.url }}" alt=""></a>
           </li>
@@ -50,7 +50,7 @@
     <h2>Sản phẩm liên quan</h2>
     <div class="products-list">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 item" *ngFor="let product of arrProduct">
+        <div class="col-6 col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 item" *ngFor="let product of arrProduct">
           <app-product-item [productItem]="product"></app-product-item>
         </div>
       </div>

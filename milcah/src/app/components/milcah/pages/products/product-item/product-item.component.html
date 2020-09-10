@@ -1,10 +1,11 @@
 <div class="product-item">
   <div class="images">
-    <img *ngFor="let image of productItem.images | slice: 0:2" src="{{ image.url }}" alt="">
+    <img [routerLink]="['/products', productItem._id]" *ngFor="let image of productItem.images | slice: 0:2"
+      src="{{ image.url }}" alt="">
   </div>
   <div class="product-summary">
-    <p>{{ productItem.name }}</p>
-    <p>{{ productItem.price | number: '1.0-3'}} đ</p>
+    <p class="name">{{ productItem.name }}</p>
+    <p class="price">{{ productItem.price | number: '1.0-3'}} đ</p>
     <div class="add-cart">
       <a (click)="addToCart()" class="btn-add-cart">THÊM VÀO GIỎ</a>
       <span class="mx-3">|</span>

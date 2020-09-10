@@ -26,8 +26,8 @@
           border-radius: 0;
           width: 70%;
           font-size: 18px;
-          font-weight: 600;
-          border-bottom: 2px solid #ced4da;
+          font-weight: 400;
+          border-bottom: 1px solid #ced4da;
           &:focus {
             box-shadow: none;
           }
@@ -104,11 +104,6 @@
           font-size: 2rem;
         }
       }
-      .products-list {
-        .col-6 {
-          padding: 0 5px;
-        }
-      }
       .row {
         .products-search {
           div {
@@ -120,6 +115,4 @@
       }
     }
   }
-}
-@media (min-width: 576px) and (max-width: 767px) {
 }

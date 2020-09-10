@@ -14,7 +14,7 @@
       transition: 0.3s;
       width: 50%;
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 400;
       &:focus {
         box-shadow: none;
         border-bottom: 1px solid #000;
@@ -45,13 +45,13 @@
     &::before {
       content: "";
       margin-right: 0;
-      display: initial;
+      //display: initial;
     }
     a {
       &::before {
         content: "";
         margin-right: 0;
-        display: initial;
+        //display: initial;
       }
     }
   }
