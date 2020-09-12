@@ -30,19 +30,14 @@ $(document).ready(function () {
   // $(".carousel-item").mouseenter(function () {
   //   clearInterval(autoSlide);
   // });
-  // });
-  //sub menu header
-  // $(".products-list")
-  //   .mouseenter(function () {
-  //     $(this).children(".sub-mega-menu").addClass("hover");
-  //   })
-  //   .mouseleave(function () {
-  //     $(this).children(".sub-mega-menu").removeClass("hover");
-  //   });
 });
 
 //close submenu when click item
 $(document).on("click", ".menu-link__sub", function () {
+  $(this).closest(".sub-mega-menu").removeClass("hover");
+});
+
+$(document).on("click", "#link_products", function () {
   $(this).closest(".sub-mega-menu").removeClass("hover");
 });
 
