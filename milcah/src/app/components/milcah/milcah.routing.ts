@@ -19,10 +19,6 @@ export const MilcahRoutes: Routes = [
     component: HomepageComponent,
   },
   {
-    path: "**",
-    component: HomepageComponent,
-  },
-  {
     path: "products",
     children: [
       {
