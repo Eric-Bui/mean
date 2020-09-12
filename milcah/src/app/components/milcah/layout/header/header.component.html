@@ -388,7 +388,7 @@
         <ul class="menu-list">
           <li><a class="link-hover" [routerLink]="['/']">Trang chủ</a></li>
           <li class="products-list" (mouseover)="addHover()" (mouseout)="removeHover()">
-            <a class="link-hover" [routerLink]="['/products']">Sản Phẩm</a>
+            <a class="link-hover" id="link_products" [routerLink]="['/products']">Sản Phẩm</a>
             <ul class="sub-mega-menu">
               <li class="menu-item" *ngFor="let category of categories">
                 <a class="menu-link__sub" [routerLink]="['/collection', category._id]">
