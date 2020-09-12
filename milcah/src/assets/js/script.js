@@ -38,7 +38,7 @@ $(document).on("click", ".menu-link__sub", function () {
 });
 
 $(document).on("click", "#link_products", function () {
-  $(this).closest(".sub-mega-menu").removeClass("hover");
+  $(this).next(".sub-mega-menu").removeClass("hover");
 });
 
 //effect label inside when focus input
