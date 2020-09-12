@@ -44,11 +44,11 @@
           </tr>
           <tr>
             <th scope="row">Phí vận chuyển:</th>
-            <td>{{ shipping | number: '1.0-3' }} đ</td>
+            <td>{{info?.feeship | number: '1.0-3' }} đ</td>
           </tr>
           <tr>
             <th scope="row">Khách hàng thân thiết: -3%</th>
-            <td>- {{ discountMember | number: '1.0-3' }} đ</td>
+            <td>- {{info?.discount | number: '1.0-3' }} đ</td>
           </tr>
           <tr>
             <th scope="row">Hình thức thanh toán:</th>
@@ -60,7 +60,7 @@
           </tr>
           <tr>
             <th scope="row">Tổng:</th>
-            <td><span class="total-amount font-weight-bold">{{ total | number: '1.0-3' }} đ</span></td>
+            <td><span class="total-amount font-weight-bold">{{info?.amount | number: '1.0-3' }} đ</span></td>
           </tr>
         </tfoot>
       </table>

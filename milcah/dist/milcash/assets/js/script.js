@@ -32,13 +32,13 @@ $(document).ready(function () {
   // });
   // });
   //sub menu header
-  $(".products-list")
-    .mouseenter(function () {
-      $(this).children(".sub-mega-menu").addClass("hover");
-    })
-    .mouseleave(function () {
-      $(this).children(".sub-mega-menu").removeClass("hover");
-    });
+  // $(".products-list")
+  //   .mouseenter(function () {
+  //     $(this).children(".sub-mega-menu").addClass("hover");
+  //   })
+  //   .mouseleave(function () {
+  //     $(this).children(".sub-mega-menu").removeClass("hover");
+  //   });
 });
 
 //close submenu when click item

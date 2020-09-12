@@ -14,6 +14,7 @@ import {
 } from "@angular/forms";
 import { DatePipe } from "@angular/common";
 import { Router } from "@angular/router";
+import { async } from "@angular/core/testing";
 
 @Component({
   selector: "app-checkout",
@@ -32,6 +33,8 @@ export class CheckoutComponent implements OnInit {
   feeShip: Number;
   totalOrder: Number;
   status: Number = 0;
+  user: any;
+  info: any;
 
   constructor(
     private subjectService: SubjectService,
@@ -52,7 +55,7 @@ export class CheckoutComponent implements OnInit {
     this.checkLogin();
     this.getCities();
     this.loadCartItems();
-    this.checkLogin();
+    //this.checkLogin();
     this.validateCheckout();
   }
 
@@ -66,6 +69,18 @@ export class CheckoutComponent implements OnInit {
   checkLogin() {
     if (localStorage.getItem("user")) {
       this.member = localStorage.getItem("user");
+      this.user = JSON.parse(this.member);
+
+      this.authService.onInfoUser(this.user.id).subscribe(async (info) => {
+        this.info = JSON.parse(info as any);
+
+        this.checkout.patchValue({
+          name: this.info.name,
+          email: this.info.email,
+          phone: this.info.phone,
+          address: this.info.address,
+        });
+      });
     }
   }
 
@@ -95,11 +110,12 @@ export class CheckoutComponent implements OnInit {
     const district = this.checkout.controls.district.value;
     const ward = this.checkout.controls.ward.value;
     const address = street + "," + ward + ";" + district + "," + city;
-
     const description = this.checkout.controls.description.value || "";
     const payment_method = this.checkout.controls.payment_method.value;
     const date = new Date();
     const createDate = this.datePipe.transform(date, "dd-MM-yyyy : hh-mm-ss");
+    const discount = this.discountMember;
+    const feeship = this.feeShip;
     const amount = this.totalOrder;
     if (this.checkout.valid) {
       this.transactionService
@@ -111,6 +127,8 @@ export class CheckoutComponent implements OnInit {
           description,
           payment_method,
           createDate,
+          discount,
+          feeship,
           amount
         )
         .subscribe(async (data) => {

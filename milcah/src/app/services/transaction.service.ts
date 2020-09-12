@@ -24,6 +24,8 @@ export class TransactionService {
     description,
     payment_method,
     createDate,
+    discount,
+    feeship,
     amount
   ) {
     return this.http.post<Transaction>(
@@ -36,6 +38,8 @@ export class TransactionService {
         description,
         payment_method,
         createDate,
+        discount,
+        feeship,
         amount,
       },
       options

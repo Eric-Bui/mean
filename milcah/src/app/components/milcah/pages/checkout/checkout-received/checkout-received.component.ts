@@ -60,20 +60,7 @@ export class CheckoutReceivedComponent implements OnInit {
         });
       this.transactionService.getResultOrder(orderId).subscribe((product) => {
         this.order = product;
-        if (this.member) {
-          this.discountMember = Math.ceil(
-            this.order.totalPrice - this.order.totalPrice * 0.97
-          );
-        } else {
-          this.discountMember = 0;
-        }
-        if (this.order.totalPrice > 500000) {
-          this.shipping = 0;
-        } else {
-          this.shipping = 50000;
-        }
-        this.total =
-          this.shipping + this.order.totalPrice - +this.discountMember;
+        console.log(this.order);
       });
     });
   }

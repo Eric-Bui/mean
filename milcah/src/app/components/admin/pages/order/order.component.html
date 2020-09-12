@@ -26,7 +26,7 @@
                     *ngFor="let item of order | order : name | paginate : {id : 'panigation', itemsPerPage :itemsPerPage,currentPage:currentPage,totalItems:totalItems } ; let i = index">
                     <th scope="row">{{ i + 1 }}</th>
                     <td>{{ item.orderId }}</td>
-                    <td>{{ item.totalPrice | number: '1.0-3' }} đ</td>
+                    <td>{{ item.amount | number: '1.0-3' }} đ</td>
                     <td>
                       <span *ngIf="item?.payment_method == 1">Thanh toán khi nhận hàng(COD)</span>
                       <span *ngIf="item?.payment_method == 2">Chuyển khoản qua ngân hàng</span>

@@ -83,6 +83,12 @@ export class InfoComponent implements OnInit {
       this.authService.onInfoUser(id).subscribe(async (info) => {
         this.user = await JSON.parse(info as any);
         this.getInfoOrder();
+
+        this.onUpdate.patchValue({
+          name: this.user.name,
+          address: this.user.address,
+          phone: this.user.phone,
+        });
       });
     });
   }

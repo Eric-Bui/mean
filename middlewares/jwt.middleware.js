@@ -20,8 +20,8 @@ module.exports.jwtClient = async (req, res, next) => {
 };
 
 module.exports.jwtAdmin = async (req, res, next) => {
-  if (req.cookies && req.headers) {
-    const token = req.cookies.token;
+  if (req.signedCookies.id_admin && req.headers) {
+    const token = req.signedCookies.id_admin;
     jwt.verify(token, process.env.JWT_ADMIN, async (err, authData) => {
       await Admin.findOne({ _id: authData }).exec();
       if (err) return res.json(err);

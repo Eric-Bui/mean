@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+
 import { CartService } from "../../../../services/cart.service";
 import { SubjectService } from "../../../../services/subject.service";
 import { Product } from "../../../../model/product.class";
@@ -7,6 +8,7 @@ import { CategoriesService } from "../../../../services/categories.service";
 import { Cart } from "../../../../model/cart.class";
 import { AuthService } from "../../../../services/auth.service";
 import { Router } from "@angular/router";
+import { CookieService } from "angular2-cookie";
 import * as bootstrap from "bootstrap";
 
 //signup
@@ -43,12 +45,16 @@ export class HeaderComponent implements OnInit {
     private formBuilder: FormBuilder,
     private categoriesService: CategoriesService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) {}
 
   ngOnInit() {
     this.handleSubscriptionCart();
     this.handleSubcriptionUser();
+
+    //this.setCookie();
+    this.chekCookie();
 
     this.loadCartItems();
     this.getCategories();
@@ -57,6 +63,14 @@ export class HeaderComponent implements OnInit {
     this.checkRegister();
 
     this.checkLogin();
+  }
+
+  addHover() {
+    $(".products-list").children(".sub-mega-menu").addClass("hover");
+  }
+
+  removeHover() {
+    $(".products-list").children(".sub-mega-menu").removeClass("hover");
   }
 
   handleSubscriptionCart() {
@@ -68,7 +82,14 @@ export class HeaderComponent implements OnInit {
   handleSubcriptionUser() {
     this.subjectService.getMsg().subscribe((user: any) => {
       this.checkLogin();
+      this.loadCartItems();
     });
+  }
+
+  chekCookie() {
+    if (!this.cookieService.get("token")) {
+      this.logout();
+    }
   }
 
   loadCartItems() {

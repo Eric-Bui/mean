@@ -387,7 +387,7 @@
       <nav class="primary-menu">
         <ul class="menu-list">
           <li><a class="link-hover" [routerLink]="['/']">Trang chủ</a></li>
-          <li class="products-list">
+          <li class="products-list" (mouseover)="addHover()" (mouseout)="removeHover()">
             <a class="link-hover" [routerLink]="['/products']">Sản Phẩm</a>
             <ul class="sub-mega-menu">
               <li class="menu-item" *ngFor="let category of categories">
@@ -398,7 +398,7 @@
               </li>
             </ul>
           </li>
-          <li><a class="link-hover" href="">Tin Tức</a></li>
+          <li><a class="link-hover" (click)="chekCookie()">Tin Tức</a></li>
           <li><a class="link-hover" routerLink="/contact">Liên Hệ</a></li>
         </ul>
       </nav>
