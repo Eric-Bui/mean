@@ -28,10 +28,6 @@ const routes: Routes = [
     ],
   },
   {
-    path: "**",
-    component: MilcahComponent,
-  },
-  {
     path: "login",
     component: LoginComponent,
   },

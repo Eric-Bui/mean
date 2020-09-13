@@ -7,7 +7,7 @@ import { AdminModule } from "./components/admin/admin.module";
 import { MilcahModule } from "./components/milcah/milcah.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { GlobalModule } from "./global/global.module";
-import { CookieService, CookieOptions } from "angular2-cookie/core";
+import { CookieService, CookieOptions } from "angular2-cookie";
 
 import { AppComponent } from "./app.component";
 import { AdminComponent } from "./components/admin/admin.component";

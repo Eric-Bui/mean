@@ -11,7 +11,7 @@ mongoose.connect(
   },
   (err) => {
     if (!err) {
-      console.log("Mongo connected sucessfully!");
+      console.log("Connected successfully to server");
     } else {
       console.log(err);
     }
